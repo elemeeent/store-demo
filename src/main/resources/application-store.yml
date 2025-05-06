@@ -1,0 +1,39 @@
+spring:
+  application:
+    name: store-demo
+
+  datasource:
+    url: jdbc:h2:mem:mydbtest-06
+    username: sa
+    password: password
+    driverClassName: org.h2.Driver
+    hikari:
+      maximumPoolSize: 16
+      connectionTimeout: 30000
+      idleTimeout: 600000
+      connectionTestQuery: SELECT 1
+  jpa:
+    hibernate:
+      ddl-auto: update
+    database-platform: org.hibernate.dialect.H2Dialect
+
+  h2:
+    console:
+      enabled: true
+
+logging:
+  level:
+    root: INFO
+    org.example.storedemo: DEBUG
+
+server:
+  error:
+    include-message: always # for JsonAPI detailed message
+    include-binding-errors: always
+  port: 8193
+
+app:
+  user:
+    login: admin
+    password: qweqwe
+    role: ADMIN
